@@ -1,0 +1,115 @@
+{
+    "ok": true,
+    "result": [
+        {
+            "update_id": 12662907,
+            "message": {
+                "message_id": 40,
+                "from": {
+                    "id": 648372019,
+                    "is_bot": false,
+                    "first_name": "Joonas",
+                    "last_name": "Kakkuri",
+                    "username": "KakkuriJ",
+                    "language_code": "fi"
+                },
+                "chat": {
+                    "id": 648372019,
+                    "first_name": "Joonas",
+                    "last_name": "Kakkuri",
+                    "username": "KakkuriJ",
+                    "type": "private"
+                },
+                "date": 1576520669,
+                "text": "dfg"
+            }
+        },
+        {
+            "update_id": 12662908,
+            "message": {
+                "message_id": 41,
+                "from": {
+                    "id": 648372019,
+                    "is_bot": false,
+                    "first_name": "Joonas",
+                    "last_name": "Kakkuri",
+                    "username": "KakkuriJ",
+                    "language_code": "fi"
+                },
+                "chat": {
+                    "id": -376650811,
+                    "title": "Bot tester group",
+                    "type": "group",
+                    "all_members_are_administrators": true
+                },
+                "date": 1576524725,
+                "text": "/start@laivabolis_bot",
+                "entities": [
+                    {
+                        "offset": 0,
+                        "length": 21,
+                        "type": "bot_command"
+                    }
+                ]
+            }
+        },
+        {
+            "update_id": 12662909,
+            "message": {
+                "message_id": 42,
+                "from": {
+                    "id": 648372019,
+                    "is_bot": false,
+                    "first_name": "Joonas",
+                    "last_name": "Kakkuri",
+                    "username": "KakkuriJ",
+                    "language_code": "fi"
+                },
+                "chat": {
+                    "id": -376650811,
+                    "title": "Bot tester group",
+                    "type": "group",
+                    "all_members_are_administrators": true
+                },
+                "date": 1576524729,
+                "text": "/start@laivabolis_bot",
+                "entities": [
+                    {
+                        "offset": 0,
+                        "length": 21,
+                        "type": "bot_command"
+                    }
+                ]
+            }
+        },
+        {
+            "update_id": 12662910,
+            "message": {
+                "message_id": 43,
+                "from": {
+                    "id": 648372019,
+                    "is_bot": false,
+                    "first_name": "Joonas",
+                    "last_name": "Kakkuri",
+                    "username": "KakkuriJ",
+                    "language_code": "fi"
+                },
+                "chat": {
+                    "id": -376650811,
+                    "title": "Bot tester group",
+                    "type": "group",
+                    "all_members_are_administrators": true
+                },
+                "date": 1576524730,
+                "text": "/start@laivabolis_bot",
+                "entities": [
+                    {
+                        "offset": 0,
+                        "length": 21,
+                        "type": "bot_command"
+                    }
+                ]
+            }
+        }
+    ]
+}
