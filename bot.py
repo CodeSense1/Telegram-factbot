@@ -1,18 +1,18 @@
 import requests  # Tällä tehdään http pyyntöjä ja postauksia
 import json
 
-# Tällä avaimella pääsee bottiin käsiksi
-token = "726370229:AAFf-Dcw_TWzeRzRLGuKCx5XuqUetfvMWI8"
-
-# groupId = -376650811
+from random import choice
 
 
-class awesomeBot:
+class SimpleBot:
 
     """ Hieno botti, se osaa lähetellä viestejä, sekä vastaanottaa päivityksiä """
 
-    def __init__(self, token):
-        self.token = token
+    def __init__(self):
+        with open("data.json") as jsonFile:
+            self.data = json.load(jsonFile)
+
+        self.token = self.data["token"]
         self.baseUrl = "https://api.telegram.org/bot{}".format(self.token)
 
     def pollEvents(self, offset=None):
@@ -37,7 +37,30 @@ class awesomeBot:
             requests.post(url)
 
 
-bot = awesomeBot(token)
+class AwesomeBot(SimpleBot):
+
+    def advancedReply(self, msg):
+        """ Personoitu vastaus """
+        for word in msg.split():
+            try:
+                for item in self.data["data"]:
+                    if item.get(word.lower(), None) is not None:
+                        return word.capitalize() + ": " + choice(item.get(word.lower()))
+            except KeyError:
+                continue
+
+        return None
+
+    def addReply(self, person, reply):
+        if person in self.data["data"]:
+            self.data["data"][person].append(reply)
+            # Send message that adding was succesful?
+
+        else:
+            self.data["data"][person] = [reply]
+
+
+bot = AwesomeBot()
 
 
 def makeReply(msg):
@@ -68,13 +91,11 @@ while not disabled:
 
             try:
                 message = item["message"]["text"]  # text that was sent
-                reply = None
-                if "perkele" in message:
-                    reply = "Hienosti puhuttu!"
+                reply = bot.advancedReply(message)
 
-                if "stop" in message:
-                    disabled = True
-                    reply = "I am now disabled :("
+                # if "stop" in message:
+                #     disabled = True
+                #     reply = "I am now disabled :("
 
                 chatId = item["message"]["chat"]["id"]  # Who ever sent the message
 
