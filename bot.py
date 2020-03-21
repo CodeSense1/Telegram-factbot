@@ -101,8 +101,13 @@ def findRandomQuoteByName(name, dbname):
     conn = sq.connect(dbname)
     cur = conn.cursor()
     q = "select id from users where name = '{0}' limit 1".format(name)
-    cur.execute(q)
-    uid = cur.fetchone()
+
+    try:
+        cur.execute(q)
+        uid = cur.fetchone()
+    except sq.OperationalError:
+        return None
+
     if uid:
         cur.execute(
             "select fact from person_facts inner join fact f on f.id = factid where userid = {0}".format(uid[0]))
@@ -118,8 +123,11 @@ def addfactToDb(name, fact, dbname):
     cur = conn.cursor()
 
     q = "select id from users where name = '{0}' limit 1".format(name)
-    cur.execute(q)
-    res = cur.fetchone()
+    try:
+        cur.execute(q)
+        res = cur.fetchone()
+    except sq.OperationalError:
+        return None
     if res:
         # There is already entry with this name
         userid = res[0]
