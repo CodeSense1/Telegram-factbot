@@ -13,7 +13,8 @@ class SimpleBot:
 
     def __init__(self):
         self.db = "data.db"
-        self.token = '1113220905:AAGTEpqiKVspGryGfGKkfwzP188jGSxtcUA'  # self.initBot()
+        # '1113220905:AAGTEpqiKVspGryGfGKkfwzP188jGSxtcUA' testibotin token, ei käytössä, saa ryöstää :)
+        self.token = self.initBot()
         self.baseUrl = "https://api.telegram.org/bot{}".format(self.token)
 
     def pollEvents(self, offset=None):
