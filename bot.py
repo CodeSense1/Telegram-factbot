@@ -79,7 +79,8 @@ class AwesomeBot(SimpleBot):
         for word in words:
             quote = findRandomQuoteByName(word, self.db)
             if quote:
-                return quote
+                word = word.capitalize()
+                return "{}: {}".format(word, quote)
         return None
 
         conn.close()
